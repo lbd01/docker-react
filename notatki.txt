@@ -1,0 +1,67 @@
+In the next lecture, we will be going over how to install Create React App globally and generate the application. This method of generating a React project is no longer recommended.
+Instead of this:
+
+npm install -g create-react-app
+create-react-app frontend
+
+We need to run this command:
+
+npx create-react-app frontend
+
+Documentation:
+https://create-react-app.dev/docs/getting-started#npx
+
+
+=======================
+
+
+Success! Created frontend at D:\home\work\2022-04-17\docker\frontend
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd frontend
+  npm start
+  
+=========================
+
+docker build -f Dockerfile.dev .
+
+docker build -p 3000:3000 8dff089f0144
+
+-v /app/node_modules
+-v $(pwd):/app
+
+docker run -p 3000:3000 -v $(pwd):/app 1149afecc30b
+
+docker build -f Dockerfile.dev -t ps/frontend .
+docker run -it -p 3000:3000 -v /app/node_modules -v /d/home/work/2022-04-17/docker/frontend:/app ps/frontend
+
+docker run -it -p 3000:3000 -v /app/node_modules -v $(pwd):/app ps/frontend
+
+docker run -it ps/frontend npm test
+#problem with volumes - not included
+
+docker exec -it fb2e4427479d npm test
+
+=============
+
+https://stackoverflow.com/questions/67639482/docker-eacces-permission-denied-mkdir-app-node-modules-cache
+
+
+=================
+
+
