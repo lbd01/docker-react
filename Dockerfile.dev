@@ -5,7 +5,7 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install
 
-#COPY . .
+COPY . .
 
 RUN chown -R node:node /app/node_modules
 
